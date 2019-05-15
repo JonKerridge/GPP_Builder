@@ -26,7 +26,7 @@ class GPPlexingMethods  {
   boolean logging = false
 
   //SH added: need logFileName gppVis command readLog()
-  String logFileName;
+  String logFileName 
 
   def getInput(FileReader reader) {
     reader.each{String line ->
@@ -63,7 +63,7 @@ class GPPlexingMethods  {
 
   def confirmChannel = { String pName, ChanTypeEnum actualInChanType  ->
     if (expectedInChan != actualInChanType) {
-      network += "Expected a process with a *$expectedInChan* type input; found $pName with type $actualInChanType \n"
+      network += "Expected a process with a *$expectedInChan* type input  found $pName with type $actualInChanType \n"
       error += " with errors, see the parsed output file"
     }
   }
@@ -157,7 +157,7 @@ class GPPlexingMethods  {
 
   def checkNoProperties = {List rvs ->
     if (rvs[1] != ")") {
-      error += "expecting a closing ) on same line; but not found\n"
+      error += "expecting a closing ) on same line  but not found\n"
       network += error
     }
   }
@@ -249,8 +249,8 @@ class GPPlexingMethods  {
 
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER)) \n" 
     }
   }
 
@@ -267,8 +267,8 @@ class GPPlexingMethods  {
     swapChannelNames(ChanTypeEnum.one)
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER)) \n" 
     }
   }
 
@@ -286,8 +286,8 @@ class GPPlexingMethods  {
 
     //SH added
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER)) \n" 
     }
   }
 
@@ -313,8 +313,8 @@ class GPPlexingMethods  {
     swapChannelNames(ChanTypeEnum.one)
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER)) \n" 
     }
 
   }
@@ -334,8 +334,8 @@ class GPPlexingMethods  {
 
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER)) \n" 
     }
   }
 
@@ -352,8 +352,8 @@ class GPPlexingMethods  {
 
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER)) \n" 
     }
   }
 
@@ -375,8 +375,8 @@ class GPPlexingMethods  {
 
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER)) \n" 
     }
   }
 
@@ -393,8 +393,8 @@ class GPPlexingMethods  {
 
     //SH added modified by JMK
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER)) \n" 
     }
   }
 
@@ -416,15 +416,15 @@ class GPPlexingMethods  {
 
     //SH added
     if (logging){
-      network += "\n    //gppVis command\n";
-      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER));\n";
+      network += "\n    //gppVis command\n" 
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.SPREADER)) \n" 
     }
   }
-
-  def OneFanRequestedAny = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-  }
+//
+//  def OneFanRequestedAny = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//  }
 
   def OneIndexedList = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
@@ -448,80 +448,80 @@ class GPPlexingMethods  {
     OneFanList(processName, starting, ending)
   }
 
-  def RequestingFanAny = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
 
-  }
-
-  def RequestingFanList = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-
-  }
-
-  def RequestingParCastList = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-
-  }
-
-  def RequestingSeqCastAny = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-
-  }
-
-  def RequestingSeqCastList = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-  }
-
-// divide and conquer
-  def BasicDandC = { String processName, int starting, int ending ->
-//		println "$processName: $starting, $ending"
-    confirmChannel(processName, ChanTypeEnum.one)
-    def rvs = extractProcDefParts(starting)
-    network += rvs[0] + "\n"
-    network += "    input: ${currentInChanName}.in(),\n"
-    network += "    output: ${currentOutChanName}.out(),\n"
-    copyProcProperties(rvs, starting, ending)
-    preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
-    swapChannelNames(ChanTypeEnum.one)
-  }
-
-  def Node = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-  }
-
-  def Root = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-  }
-
-// mapReduce
-  def OneMapperMany = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-  }
-
-  def OneMapperOne = { String processName, int starting, int ending ->
-    println "$processName: $starting, $ending"
-    network += inText[starting]
-  }
-
-  def Reducer = { String processName, int starting, int ending ->
-//			println "$processName: $starting, $ending"
-    confirmChannel(processName, ChanTypeEnum.list)
-    def rvs = extractProcDefParts(starting)
-    network += rvs[0] + "\n"
-    network += "    inputList: ${currentInChanName}InList,\n"
-    network += "    output: ${currentOutChanName}.out(),\n"
-    copyProcProperties(rvs, starting, ending)
-    // no need to scan as this process only has a single output
-    preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
-    swapChannelNames(ChanTypeEnum.one)
-  }
+//  def RequestingFanAny = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//
+//  }
+//
+//  def RequestingFanList = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//
+//  }
+//
+//  def RequestingParCastList = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//
+//  }
+//
+//  def RequestingSeqCastAny = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//
+//  }
+//
+//  def RequestingSeqCastList = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//  }
+//// divide and conquer
+//  def BasicDandC = { String processName, int starting, int ending ->
+////		println "$processName: $starting, $ending"
+//    confirmChannel(processName, ChanTypeEnum.one)
+//    def rvs = extractProcDefParts(starting)
+//    network += rvs[0] + "\n"
+//    network += "    input: ${currentInChanName}.in(),\n"
+//    network += "    output: ${currentOutChanName}.out(),\n"
+//    copyProcProperties(rvs, starting, ending)
+//    preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
+//    swapChannelNames(ChanTypeEnum.one)
+//  }
+//
+//  def Node = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//  }
+//
+//  def Root = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//  }
+//
+//// mapReduce
+//  def OneMapperMany = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//  }
+//
+//  def OneMapperOne = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+//    network += inText[starting]
+//  }
+//
+//  def Reducer = { String processName, int starting, int ending ->
+////			println "$processName: $starting, $ending"
+//    confirmChannel(processName, ChanTypeEnum.list)
+//    def rvs = extractProcDefParts(starting)
+//    network += rvs[0] + "\n"
+//    network += "    inputList: ${currentInChanName}InList,\n"
+//    network += "    output: ${currentOutChanName}.out(),\n"
+//    copyProcProperties(rvs, starting, ending)
+//    // no need to scan as this process only has a single output
+//    preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
+//    swapChannelNames(ChanTypeEnum.one)
+//  }
 
 // patterns
   def DataParallelCollect = { String processName, int starting, int ending ->
@@ -559,7 +559,7 @@ class GPPlexingMethods  {
   }
 
 // composites
-  def GroupOfPipelineCollects = { String processName, int starting, int ending ->
+  def AnyGroupOfPipelineCollects = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.any)
     def rvs = extractProcDefParts(starting)
@@ -577,13 +577,37 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + "));\n";
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + ")) \n"
       }
     }
   }
 
-  def GroupOfPipelines = { String processName, int starting, int ending ->
+  def ListGroupOfPipelineCollects = { String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    confirmChannel(processName, ChanTypeEnum.list)
+    def rvs = extractProcDefParts(starting)
+    network += rvs[0] + "\n"
+    network += "    inputList: ${currentInChanName}InList,\n"
+    if (logging) network += logChanAdd
+    network += "    // no output channel required\n"
+    copyProcProperties(rvs, starting, ending)
+
+    //SH added JMK modified
+    if (logging){
+      def returned = getLogData (starting,  "groups")
+      if ( returned == [null, null] ) {
+        network += "getLogData returned null in $processName : groups and/or LogPhaseNames not found"
+        error += " with errors, see the parsed output file"
+      }
+      else {
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + ")) \n"
+      }
+    }
+  }
+
+  def ListGroupOfPipelines = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.list)
     def rvs = extractProcDefParts(starting)
@@ -604,13 +628,38 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + "));\n";
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + ")) \n"
       }
     }
   }
 
-  def PipelineOfGroupCollects = { String processName, int starting, int ending ->
+  def AnyGroupOfPipelines = { String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    confirmChannel(processName, ChanTypeEnum.any)
+    def rvs = extractProcDefParts(starting)
+    network += rvs[0] + "\n"
+    network += "    inputAny: ${currentInChanName}.in(),\n"
+    network += "    outputAny: ${currentOutChanName}.out(),\n"
+    copyProcProperties(rvs, starting, ending)
+    preNetwork = preNetwork + "def $currentOutChanName = Channel.any2any()\n"
+    swapChannelNames(ChanTypeEnum.any)
+
+    //SH added JMK modified
+    if (logging){
+      def returned = getLogData (starting,  "groups")
+      if ( returned == [null, null] ) {
+        network += "getLogData returned null in $processName : groups and/or LogPhaseNames not found"
+        error += " with errors, see the parsed output file"
+      }
+      else {
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGoP(" + returned[0] + ", " + returned[1] + ")) \n"
+      }
+    }
+  }
+
+  def AnyPipelineOfGroupCollects = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.any)
     def rvs = extractProcDefParts(starting)
@@ -628,13 +677,13 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", " + returned[1] + "));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", " + returned[1] + ")) \n" 
       }
     }
   }
 
-  def PipelineOfGroups = { String processName, int starting, int ending ->
+  def AnyPipelineOfGroups = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.any)
     def rvs = extractProcDefParts(starting)
@@ -653,11 +702,64 @@ class GPPlexingMethods  {
         network += "getLogData returned null in $processName : workers and/or LogPhaseNames not found"
         error += " with errors, see the parsed output file"
       } else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
   }
+
+  def ListPipelineOfGroups = {String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    confirmChannel(processName, ChanTypeEnum.list)
+    def rvs = extractProcDefParts(starting)
+    network += rvs[0] + "\n"
+    network += "    inputList: ${currentInChanName}InList,\n"
+    network += "    outputList: ${currentOutChanName}OutList,\n"
+    copyProcProperties(rvs, starting, ending)
+    preNetwork = preNetwork + "def $currentOutChanName = Channel.one2oneArray($chanSize)\n"
+    preNetwork = preNetwork + "def ${currentOutChanName}OutList = new ChannelOutputList($currentOutChanName)\n"
+    preNetwork = preNetwork + "def ${currentOutChanName}InList = new ChannelInputList($currentOutChanName)\n"
+    swapChannelNames(ChanTypeEnum.list)
+
+    //SH added JMK modified
+    if (logging){
+      def returned = getLogData (starting,  "groups")
+      if ( returned == [null, null] ) {
+        network += "getLogData returned null in $processName : groups and/or LogPhaseNames not found"
+        error += " with errors, see the parsed output file"
+      }
+      else {
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", " + returned[1] + ")) \n"
+      }
+    }
+  }
+  def ListPipelineOfGroupCollects = {String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    confirmChannel(processName, ChanTypeEnum.list)
+    def rvs = extractProcDefParts(starting)
+    network += rvs[0] + "\n"
+    network += "    inputList: ${currentInChanName}InList,\n"
+    if (logging) network += logChanAdd
+    network += "    // no output channel required\n"
+    copyProcProperties(rvs, starting, ending)
+
+    //SH added JMK modified
+    if (logging){
+      def returned = getLogData (starting,  "groups")
+      if ( returned == [null, null] ) {
+        network += "getLogData returned null in $processName : groups and/or LogPhaseNames not found"
+        error += " with errors, see the parsed output file"
+      }
+      else {
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", " + returned[1] + ")) \n"
+      }
+    }
+  }
+
+
+
 
 // groups
   def AnyGroupAny = { String processName, int starting, int ending ->
@@ -679,8 +781,8 @@ class GPPlexingMethods  {
         network += "getLogData returned null in $processName : workers and/or LogPhaseNames not found"
         error += " with errors, see the parsed output file"
       } else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
   }
@@ -703,8 +805,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
@@ -734,8 +836,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
@@ -761,8 +863,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
@@ -786,8 +888,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
@@ -820,19 +922,19 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
 //    //SH added
 //    if (logging) {
-//      network += "\n    //gppVis command\n";
+//      network += "\n    //gppVis command\n" 
 //      String lineA = inText[starting + 1] //contains variable for number of workers
 //      String[] wordsA = lineA.split(" ")
 //      String lineB = inText[starting + 2] //contains logPhaseName
 //      String[] wordsB = lineB.split("\"")
-//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorkers(" +wordsA[1]+  " \""+wordsB[1]+"\"));\n";
+//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorkers(" +wordsA[1]+  " \""+wordsB[1]+"\")) \n" 
 //    }
   }
 
@@ -896,8 +998,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addGroup(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
 
@@ -939,8 +1041,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPipe (" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPipe (" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
   }
@@ -964,8 +1066,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPipe (" + returned[0] + ", \"" + returned[1] + "\" ));\n";
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPipe (" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
       }
     }
   }
@@ -989,8 +1091,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
   }
 
@@ -1017,15 +1119,15 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
 //    //SH added
 //    if (logging){
-//      network += "\n    //gppVis command\n";
+//      network += "\n    //gppVis command\n" 
 //      String line = inText[starting+1]
 //      String[] words = line.split("\"")
-//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\"));\n";
+//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\")) \n" 
 //    }
   }
 
@@ -1048,16 +1150,16 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
 
 //    //SH added
 //    if (logging){
-//      network += "\n    //gppVis command\n";
+//      network += "\n    //gppVis command\n" 
 //      String line = inText[starting+1]
 //      String[] words = line.split("\"")
-//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\"));\n";
+//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\")) \n" 
 //    }
   }
 
@@ -1083,16 +1185,16 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
 
 //    //SH added
 //    if (logging){
-//      network += "\n    //gppVis command\n";
+//      network += "\n    //gppVis command\n" 
 //      String line = inText[starting+2]
 //      String[] words = line.split("\"")
-//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\"));\n";
+//      network += "    Visualiser.hb.getChildren().add(Visualiser.p.populateMap(\""+words[1]+"\")) \n" 
 //    }
   }
 
@@ -1132,8 +1234,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
   }
 
@@ -1151,10 +1253,10 @@ class GPPlexingMethods  {
 
     //SH added
     if (logging){
-      network += "\n    //gppVis command\n";
+      network += "\n    //gppVis command\n" 
       String line = inText[starting+2]
       String[] words = line.split("\"")
-      network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+words[1]+"\"));\n";
+      network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+words[1]+"\")) \n" 
     }
   }
 
@@ -1182,8 +1284,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
   }
 
@@ -1206,8 +1308,8 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       }
       else {
-        network += "\n    //gppVis command\n";
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\"));\n";      }
+        network += "\n    //gppVis command\n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addWorker(\""+returned[1]+"\")) \n"       }
     }
   }
 
@@ -1247,9 +1349,9 @@ class GPPlexingMethods  {
     preNetwork += "new Thread() {\n"
     preNetwork += "	@Override\n"
     preNetwork += "	public void run() {\n"
-    preNetwork += "		Visualiser.main();\n"
+    preNetwork += "		Visualiser.main() \n"
     preNetwork += "	}\n"
-    preNetwork += "}.start();\n"
+    preNetwork += "}.start() \n"
   }
 
   def processPreNetwork = {
@@ -1272,16 +1374,16 @@ class GPPlexingMethods  {
     if (logging){
       postNetwork += "//gppVis command\n"
       postNetwork += "//short delay to give JavaFx time to start up.\n"
-      postNetwork += "sleep(2000)\n";
+      postNetwork += "sleep(2000)\n" 
       postNetwork += "Platform.runLater(new Runnable() {\n"
       postNetwork += "	@Override\n"
       postNetwork += "	void run() {\n"
       postNetwork += "		Visualiser.networkScene()\n"
       postNetwork += "	}\n"
-      postNetwork += "});\n"
+      postNetwork += "}) \n"
 
       postNetwork += "\n//short delay to give JavaFx time to display.\n"
-      postNetwork += "sleep(3000);\n\n"
+      postNetwork += "sleep(3000) \n\n"
     }
 
     if ( !pattern) postNetwork += "PAR network = new PAR()\n network = new PAR($processNames)\n network.run()\n network.removeAllProcesses()"
@@ -1298,7 +1400,7 @@ class GPPlexingMethods  {
       postNetwork += "	void run() {\n"
       postNetwork += "		Visualiser.readLog(\""+logFileName.replace("\"","")+"log.csv\")\n"
       postNetwork += "	}\n"
-      postNetwork += "});\n"
+      postNetwork += "}) \n"
     }
 
 
