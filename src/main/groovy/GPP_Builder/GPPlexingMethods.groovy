@@ -687,6 +687,7 @@ class GPPlexingMethods  {
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.any)
     def rvs = extractProcDefParts(starting)
+//    println "$rvs"
     network += rvs[0] + "\n"
     network += "    inputAny: ${currentInChanName}.in(),\n"
     network += "    outputAny: ${currentOutChanName}.out(),\n"
@@ -703,7 +704,7 @@ class GPPlexingMethods  {
         error += " with errors, see the parsed output file"
       } else {
         network += "\n    //gppVis command\n" 
-        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", \"" + returned[1] + "\" )) \n" 
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addPoG(" + returned[0] + ", " + returned[1] + ")) \n"
       }
     }
   }
