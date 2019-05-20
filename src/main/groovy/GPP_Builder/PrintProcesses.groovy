@@ -31,5 +31,5 @@ def PrintDir(dirName){
  * the content of the directory and any sub-directories to the console, enabling the user to
  * visualise the folder structure.
  */
-//PrintDir("")
+PrintDir("D:\\IJGradle\\GPP_Library\\src\\main\\groovy\\GPP_Library")
 
