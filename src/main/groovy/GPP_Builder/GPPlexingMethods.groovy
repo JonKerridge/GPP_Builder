@@ -617,16 +617,6 @@ class GPPlexingMethods {
     anyNoneGroup(processName, starting, ending, "GoP", "groups")
   } // end of AnyGroupOfPipelineCollects
 
-  def ListGroupOfPipelineCollects = { String processName, int starting, int ending ->
-//		println "$processName: $starting, $ending"
-    listNoneGroup(processName, starting, ending, "GoP", "groups")
-  } // end of ListGroupOfPipelineCollects
-
-  def ListGroupOfPipelines = { String processName, int starting, int ending ->
-//		println "$processName: $starting, $ending"
-    listListGroup(processName, starting, ending, "GoP", "groups")
-  } // end of ListGroupOfPipelines
-
   def AnyGroupOfPipelines = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     anyAnyGroup(processName, starting, ending,"GoP", "groups")
@@ -641,6 +631,16 @@ class GPPlexingMethods {
 //		println "$processName: $starting, $ending"
     anyAnyGroup(processName, starting, ending, "PoG", "workers")
   } // end of AnyPipelineOfGroups
+
+  def ListGroupOfPipelineCollects = { String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    listNoneGroup(processName, starting, ending, "GoP", "groups")
+  } // end of ListGroupOfPipelineCollects
+
+  def ListGroupOfPipelines = { String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    listListGroup(processName, starting, ending, "GoP", "groups")
+  } // end of ListGroupOfPipelines
 
   def ListPipelineOfGroups = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
@@ -912,7 +912,7 @@ class GPPlexingMethods {
       postNetwork += "Platform.runLater(new Runnable() {\n"
       postNetwork += "	@Override\n"
       postNetwork += "	void run() {\n"
-      postNetwork += "		Visualiser.networkScene()\n"
+      postNetwork += "		Visualiser.networkScene($logFileName)\n"
       postNetwork += "	}\n"
       postNetwork += "}) \n"
 
