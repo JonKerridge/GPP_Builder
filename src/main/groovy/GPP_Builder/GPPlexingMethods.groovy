@@ -191,6 +191,9 @@ class GPPlexingMethods {
 //        phaseName = phaseName.subSequence(1, phaseName.length() - 1)
       }
     }
+    if ((repeats == null)&&(phaseName == null)){
+      println " GPP_Builder logging specification inconsistency; check all required elements are present"
+    }
     return [repeats, phaseName]
   }
 
@@ -747,7 +750,17 @@ class GPPlexingMethods {
     copyProcProperties(rvs, starting, ending)
     preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
     swapChannelNames(ChanTypeEnum.one)
-  }  // end of MultiCoreEngine
+
+    if (logging) {
+      def returned = getLogData(starting, "nodes")
+      if (returned == [null, null]) {
+        network += "getLogData returned null in $processName : stages and/or LogPhaseNames not found"
+        error += " with errors, see the parsed output file"
+      } else {
+        network += "\n    //gppVis command\n"
+        network += "    Visualiser.hb.getChildren().add(Visualiser.p.addMCEngine (" + returned[0] + " )) \n"
+      }
+    }  }  // end of MultiCoreEngine
 
   def StencilEngine = { String processName, int starting, int ending ->
     MultiCoreEngine(processName, starting, ending)
