@@ -42,7 +42,7 @@ class GPPlexFileHanding {
 				// use the name of the process as the method call using Groovy GString
 //				println "calling $processName, $currentLine, $endLine"
 				"$processName"(processName, currentLine, endLine)
-				if ((processName =~ /Collect/) || (processName =~ /Parallel/) ) {
+				if ((processName =~ /Collect/) || (processName =~ /Pattern/) ) {
 					processing = false
 					currentLine = endLine + 1
 				}

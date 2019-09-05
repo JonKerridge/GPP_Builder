@@ -4,11 +4,11 @@ plugins {
 }
 
 group 'GPP_Builder'
-version '1.0.1'
+version '1.0.2'
 // version 1.0.0 was the base version with the Builder reconfigured
 // so that many of the calls are just a call to a base version of the required connection
 // version 1.0.1 includes the Visualisation of matrix style engines
-
+// version 1.0.2 includes the more complete Pattern definitions
 
 repositories {
     mavenCentral()

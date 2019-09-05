@@ -204,6 +204,14 @@ class GPPlexingMethods {
    *  and Groups: AnyGroupList ListGroupAny plus OnePipelineOne and OnePipelineCollect
    */
 
+  def patternProcess = { String processName, int starting, int ending ->
+//    println "$processName: $starting, $ending"
+    pattern = true
+    def rvs = extractProcDefParts(starting)
+    network += rvs[0] + "\n"
+    copyProcProperties(rvs, starting, ending)
+  }
+
   def oneOne = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
     confirmChannel(processName, ChanTypeEnum.one)
@@ -580,29 +588,53 @@ class GPPlexingMethods {
   }
 
 // patterns
-  def DataParallelCollect = { String processName, int starting, int ending ->
-//			println "$processName: $starting, $ending"
-    pattern = true
-    def rvs = extractProcDefParts(starting)
-    network += rvs[0] + "\n"
-    copyProcProperties(rvs, starting, ending)
-  } // end of DataParallelCollect
+//  def DataParallelCollect = { String processName, int starting, int ending ->
+////			println "$processName: $starting, $ending"
+//    pattern = true
+//    def rvs = extractProcDefParts(starting)
+//    network += rvs[0] + "\n"
+//    copyProcProperties(rvs, starting, ending)
+//  } // end of DataParallelCollect
+//
+//  def TaskParallelCollect = { String processName, int starting, int ending ->
+////			println "$processName: $starting, $ending"
+//    pattern = true
+//    def rvs = extractProcDefParts(starting)
+//    network += rvs[0] + "\n"
+//    copyProcProperties(rvs, starting, ending)
+//  } // end of TaskParallelCollect
+//
+//  def TaskParallelOfGroupCollects = { String processName, int starting, int ending ->
+////			println "$processName: $starting, $ending"
+//    pattern = true
+//    def rvs = extractProcDefParts(starting)
+//    network += rvs[0] + "\n"
+//    copyProcProperties(rvs, starting, ending)
+//  } // end of TaskParallelOfGroupCollects
 
-  def TaskParallelCollect = { String processName, int starting, int ending ->
-//			println "$processName: $starting, $ending"
-    pattern = true
-    def rvs = extractProcDefParts(starting)
-    network += rvs[0] + "\n"
-    copyProcProperties(rvs, starting, ending)
-  } // end of TaskParallelCollect
+  def TaskParallelPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
 
-  def TaskParallelOfGroupCollects = { String processName, int starting, int ending ->
-//			println "$processName: $starting, $ending"
-    pattern = true
-    def rvs = extractProcDefParts(starting)
-    network += rvs[0] + "\n"
-    copyProcProperties(rvs, starting, ending)
-  } // end of TaskParallelOfGroupCollects
+  def DataParallelPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
+
+  def PipelineOfGroupsPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
+
+  def GroupOfPipelinesPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
+
+  def PipelineOfGroupCollectPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
+
+  def GroupOfPipelineCollectPattern = { String processName, int starting, int ending ->
+    patternProcess ( processName, starting, ending )
+  }
 
 // evolutionary
 
@@ -904,13 +936,13 @@ class GPPlexingMethods {
   }// end of processLogDetails
 
   def processPreNetwork = {
-    boolean startProcess = ((inText[currentLine] =~ /Emit/) || (inText[currentLine] =~ /Parallel/))
+    boolean startProcess = ((inText[currentLine] =~ /Emit/) || (inText[currentLine] =~ /Pattern/))
     while (!startProcess) {
       preNetwork += inText[currentLine] + "\n"
       // added to deal with logging
       if (inText[currentLine].startsWith("//@log")) processLogDetails()
       currentLine++
-      startProcess = ((inText[currentLine] =~ /Emit/) || (inText[currentLine] =~ /Parallel/))
+      startProcess = ((inText[currentLine] =~ /Emit/) || (inText[currentLine] =~ /Pattern/))
     }
     preNetwork = preNetwork + "\n//NETWORK\n\n"
   } // end of processPreNetwork
