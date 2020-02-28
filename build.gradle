@@ -4,13 +4,14 @@ plugins {
 }
 
 group 'GPP_Builder'
-version '1.0.4'
+version '1.0.5'
 // version 1.0.0 was the base version with the Builder reconfigured
 // so that many of the calls are just a call to a base version of the required connection
 // version 1.0.1 includes the Visualisation of matrix style engines
 // version 1.0.2 includes the more complete Pattern definitions
 // version 1.0.3 built using Java 13
 // version 1.0.4 built using Java 11 and Groovy-3.0.0
+// version 1.0.5 incorporates EmitSingle J11 G3.0.1
 
 repositories {
     mavenCentral()
@@ -22,9 +23,9 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:3.0.0'
+    compile 'org.codehaus.groovy:groovy-all:3.0.1'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
-    testCompile 'org.codehaus.groovy:groovy-all:3.0.0'
+    testCompile 'org.codehaus.groovy:groovy-all:3.0.1'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

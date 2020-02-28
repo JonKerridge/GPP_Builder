@@ -866,7 +866,10 @@ class GPPlexingMethods {
 //		println "$processName: $starting, $ending"
     oneOne(processName, starting, ending)
   }
-
+  def EmitSingle = { String processName, int starting, int ending ->
+//		println "$processName: $starting, $ending"
+    noneOne(processName, starting, ending)
+  }
 
   def EmitWithLocal = { String processName, int starting, int ending ->
 //			println "$processName: $starting, $ending"
