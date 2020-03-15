@@ -696,7 +696,7 @@ class GPPlexingMethods {
 
   def AnyGroupCollect = { String processName, int starting, int ending ->
 //      println "$processName: $starting, $ending"
-    anyNoneGroup(processName, starting, ending, "Group", "workers")
+    anyNoneGroup(processName, starting, ending, "Group", "collectors")
   } // end of AnyGroupCollect
 
   def AnyGroupList = { String processName, int starting, int ending ->
@@ -757,7 +757,7 @@ class GPPlexingMethods {
 
   def ListGroupCollect = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
-    listNoneGroup(processName, starting, ending, "Group", "workers")
+    listNoneGroup(processName, starting, ending, "Group", "collectors")
   } // end of ListGroupCollect
 
   def ListGroupList = { String processName, int starting, int ending ->
@@ -915,10 +915,10 @@ class GPPlexingMethods {
     String collectors = logTokens[1]
     logFileName = logTokens[2]
     logging = true
-    preNetwork += "\nimport GPP_Library.Logger\n"
-    preNetwork += "import GPP_Library.LoggingVisualiser\n"
-    preNetwork += "import GPP_Library.gppVis.Visualiser\n"
-    preNetwork += "import GPP_Library.gppVis.Connector\n"
+    preNetwork += "\nimport groovyParallelPatterns.Logger\n"
+    preNetwork += "import groovyParallelPatterns.LoggingVisualiser\n"
+    preNetwork += "import groovyParallelPatterns.gppVis.Visualiser\n"
+    preNetwork += "import groovyParallelPatterns.gppVis.Connector\n"
     preNetwork += "import javafx.application.Platform\n\n"
 
     preNetwork += "def logChan = Channel.any2one()\n"
