@@ -513,7 +513,7 @@ class GPPlexingMethods {
 
   def N_WayMerge = { String processName, int starting, int ending ->
 //		println "$processName: $starting, $ending"
-    // cannot be listOne because it is exprcting properties
+    // cannot be listOne because it is expecting properties
     confirmChannel(processName, ChanTypeEnum.list)
     def rvs = extractProcDefParts(starting)
     network += rvs[0] + "\n"
@@ -522,6 +522,11 @@ class GPPlexingMethods {
     copyProcProperties(rvs, starting, ending)
     preNetwork = preNetwork + "def $currentOutChanName = Channel.one2one()\n"
     swapChannelNames(ChanTypeEnum.one)
+    //SH added modified by JMK
+    if (logging) {
+      network += "\n    //gppVis command\n"
+      network += "    Visualiser.hb.getChildren().add(new Connector(Connector.TYPE.REDUCER)) \n"
+    }
   } // end of N_WayMerge
 
 
