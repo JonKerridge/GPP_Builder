@@ -3,7 +3,7 @@ plugins {
     id 'java'
 }
 
-group 'GPP_Builder'
+group 'gppBuilder'
 version '1.0.6'
 // version 1.0.0 was the base version with the Builder reconfigured
 // so that many of the calls are just a call to a base version of the required connection

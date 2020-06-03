@@ -1,4 +1,4 @@
-package GPP_Builder;
+package gppBuilder;
 
 /**
  * ChanTypeEnum enumerates the different types of communication that a GPP process can use.

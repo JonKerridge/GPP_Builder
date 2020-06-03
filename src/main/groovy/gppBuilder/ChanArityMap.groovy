@@ -1,4 +1,4 @@
-package GPP_Builder;
+package gppBuilder;
 
 /**
  * ChanArityMap provides a map of the processes to their PCA enumeration

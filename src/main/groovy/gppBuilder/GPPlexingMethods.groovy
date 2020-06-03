@@ -1,4 +1,4 @@
-package GPP_Builder
+package gppBuilder
 
 class GPPlexingMethods {
 
@@ -192,7 +192,7 @@ class GPPlexingMethods {
       }
     }
     if ((repeats == null)&&(phaseName == null)){
-      println " GPP_Builder logging specification inconsistency; check all required elements are present"
+      println " gppBuilder logging specification inconsistency; check all required elements are present"
     }
     return [repeats, phaseName]
   }

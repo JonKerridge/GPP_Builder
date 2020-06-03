@@ -15,4 +15,4 @@
  *
  */
 
-package GPP_Builder;
+package gppBuilder;
