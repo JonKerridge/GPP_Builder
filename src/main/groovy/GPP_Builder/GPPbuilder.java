@@ -8,7 +8,7 @@ package GPP_Builder;
  * parallel composition definitions.  The program constructs the required definitions
  * automatically.<p>
  *
- * The argument to the program is a \path\filename that has a _gpp.groovy suffix.  The
+ * The argument to the program is a \path\filename that has a .gpp suffix.  The
  * supplied argument should omit the suffix.  The output is the \path\filename now
  * with a .groovy suffix.  The outpfile can be executed as a groovy script.
  * Any errors will be placed in the output file at the place where they were detected.<p>
@@ -18,7 +18,8 @@ public class GPPbuilder {
 
     /**
      *
-     * @param args args[0] contains the full path name of a the file to be converted, excluding the _gpp.groovy suffix
+     * @param args args[0] contains the full path name of a the file to be converted,
+     *             excluding the .gpp suffix
      *
      */
     public static void main(String[] args) {
