@@ -1,6 +1,10 @@
 package gppBuilder;
 
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.io.File;
 
 /**
  * GPPbuilder provides a means of transforming a file containing the definition of a
@@ -14,7 +18,7 @@ package gppBuilder;
  * Any errors will be placed in the output file at the place where they were detected.<p>
  *
  */
-public class GPPbuilder {
+public class GPPbuilder  extends JPanel{
 
     /**
      *
@@ -58,6 +62,29 @@ public class GPPbuilder {
         }
         else System.out.println("Build failed:" + error);
 
+    }
+
+    public static void selectingBuilder() {
+        JFrame frame = new JFrame("GPP File Processing");
+        JTextArea messages = new JTextArea();
+        messages.setRows(5);
+        frame.getContentPane().add(messages);
+        frame.setSize(800,200);
+        frame.setLocation(200,200);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setLocation(400,400);
+        fileChooser.setSize(1000, 1000);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("GPP Files", "gpp", "cgpp"));
+//        fileChooser.setVisible(true);
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fileChooser.showOpenDialog(frame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            frame.setVisible(true);
+            messages.append("Processing file    \n");
+            String fileName = selectedFile.getAbsolutePath();
+            messages.append(fileName + "\n");
+        }
     }
 
 }
