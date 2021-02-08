@@ -75,6 +75,7 @@ dependencies {
 //    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
 }
 
+// ysed to create a local copy for testing in c:\jcspLib
 task copyLib ( type: Copy){
     def libName = "${rootProject.name}-${version}.jar"
     println "copying $libName"
