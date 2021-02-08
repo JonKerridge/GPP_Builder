@@ -9,7 +9,7 @@
  * The source file contains all the data definition and Detail objects required by the application<p>.
  *
  * The processes that comprise the application process network must be specified in the order in
- * which the data flows through the process network.<p>
+ * which the data flows through the process network.
  *
  * <p>
  *     The library is available from bintray using the following repository:

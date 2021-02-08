@@ -10,12 +10,12 @@ import java.io.File;
  * GPPbuilder provides a means of transforming a file containing the definition of a
  * GPP defined application, in which, the process definitions omit the communication and
  * parallel composition definitions.  The program constructs the required definitions
- * automatically.<p>
+ * automatically.
  *
  * The argument to the program is a \path\filename that has a .gpp suffix.  The
  * supplied argument should omit the suffix.  The output is the \path\filename now
  * with a .groovy suffix.  The outpfile can be executed as a groovy script.
- * Any errors will be placed in the output file at the place where they were detected.<p>
+ * Any errors will be placed in the output file at the place where they were detected.
  *
  */
 public class GPPbuilder  extends JPanel{
