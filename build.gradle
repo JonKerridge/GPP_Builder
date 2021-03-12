@@ -1,10 +1,9 @@
 apply plugin: 'groovy'
-apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 
-group 'gppBuilder'
-version '1.1.11'
+group 'jonkerridge'
+version '1.1.12'
 // version 1.0.0 was the base version with the Builder reconfigured
 // so that many of the calls are just a call to a base version of the required connection
 // version 1.0.1 includes the Visualisation of matrix style engines
@@ -14,10 +13,14 @@ version '1.1.11'
 // version 1.0.5 incorporates EmitSingle J11 G3.0.1
 // version 1.0.6 uses Groovy.3.0.4
 //version 1.1.11 is the GitHub release version using Java 11 and Groovy 3
+// version 1.1.12 is a Github Package using Java 11 and Groovy 3
 
 repositories {
     mavenCentral()
-    mavenLocal()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:3.0.7'
 }
 
 task sourcesJar(type: Jar) {
@@ -25,28 +28,29 @@ task sourcesJar(type: Jar) {
     archiveClassifier.set( "sources")
 }
 
-task javadocJar(type: Jar) {
-    from javadoc.destinationDir
-    from groovydoc.destinationDir
-    archiveClassifier.set("javadoc")
-}
-
 artifacts {
-    archives sourcesJar, javadocJar
+    archives sourcesJar
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "GHP"
+            url = "https://maven.pkg.github.com/JonKerridge/GPP_Builder"
+            credentials {
+                username = project.findProperty("gpr.user")
+                password = project.findProperty("gpr.key")
+            }
+        }
+    }
     publications {
         gppBuilder(MavenPublication) {
             from components.java
             artifact sourcesJar
-            artifact javadocJar
         }
     }
 }
 
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:3.0.7'
-}
+
 
 
